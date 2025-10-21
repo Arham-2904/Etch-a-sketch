@@ -8,6 +8,11 @@ html,body{
     gap: 40px;
 }
 
+#buttons{
+  display: flex;
+  gap: 20px;
+}
+
 #container{
     display: flex;
     flex-wrap: wrap;
@@ -40,7 +45,41 @@ html,body{
   transition: transform 0.1s;
 }
 
+#rainbowBtn {
+  background-color: #ff5555;
+  color: white;
+  font-family: 'Press Start 2P', monospace;
+  border: 3px solid #222;
+  border-radius: 0;
+  padding: 12px 18px;
+  box-shadow: 4px 4px 0 #222;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+#clearBtn {
+  background-color: #ff5555;
+  color: white;
+  font-family: 'Press Start 2P', monospace;
+  border: 3px solid #222;
+  border-radius: 0;
+  padding: 12px 18px;
+  box-shadow: 4px 4px 0 #222;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
 #resizeBtn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 #222;
+}
+
+#rainbowBtn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 #222;
+}
+
+#clearBtn:active {
   transform: translate(4px, 4px);
   box-shadow: 0 0 0 #222;
 }

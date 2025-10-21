@@ -1,9 +1,13 @@
 const container = document.getElementById('container');
 const resizeBtn = document.getElementById('resizeBtn');
+const rainbowBtn = document.getElementById('rainbowBtn');
+const clearBtn = document.getElementById('clearBtn');
 
 const baseSize = 40;
 const baseGrid = 16;
 const containerSize = baseSize * baseGrid;
+
+let rainbowMode = false;
 
 function makeGrid(size){
     container.innerHTML = '';
@@ -21,11 +25,24 @@ function makeGrid(size){
     div.style.height = `${squareSize}px`;
 
     div.addEventListener('mouseenter', () => {
-        div.classList.add('hovered');
+        if(rainbowMode){
+            div.style.backgroundColor = getRandomColor();
+        }
+        else{
+            div.classList.add('hovered');
+        }
     });
 
     container.appendChild(div);
     }
+}
+
+function getRandomColor(){
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    return `rgb(${r},${g},${b})`;
 }
 
 makeGrid(16);
@@ -42,3 +59,16 @@ resizeBtn.addEventListener('click', ()=>{
 
     makeGrid(newSize)
 })
+
+rainbowBtn.addEventListener('click', ()=>{
+    rainbowMode = !rainbowMode;
+})
+
+clearBtn.addEventListener('click', ()=>{
+    const squares = document.querySelectorAll('.Square');
+
+    squares.forEach(square => {
+        square.style.backgroundColor = '';
+        square.classList.remove('hovered');
+    });
+});
